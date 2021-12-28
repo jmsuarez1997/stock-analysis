@@ -1,5 +1,6 @@
 # stock-analysis
 A stock analysis using VBA to uncover perfomance insight
+
 ## Overview of the Project:
 This project uses VBA to automate a stock analysis. The analysis uses stock data from green energy companies and creates performance insight for 2017 and 2018. With a few lines of VBA code, the user can click a button to see the percentage of return and Total daily volume traded. This project also walks through the refactoring process of making our VBA code run as efficiently as possible.
 
@@ -7,6 +8,7 @@ This project uses VBA to automate a stock analysis. The analysis uses stock data
 Below is an outline of the first version of the VBA code:
 1) Created an input box for the year value. 
 2) Formatted the table for the *All Stocks Analysis Worksheet*
+
 `Worksheets("All Stocks Analysis").Activate
         Range("A1").Value = "All Stocks (" + yearValue + ")"
         'adding a header row
@@ -31,8 +33,8 @@ Below is an outline of the first version of the VBA code:
         tickers(11) = "VSLR"`
 
 4) Prepared for the analysis of tickers
-    - Initialize variables for the starting price and ending price.
-    - Activate the data worksheet that uses value from the input box
+a) Initialize variables for the starting price and ending price.
+b) Activate the data worksheet that uses value from the input box
 
 `Dim startingPrice As Double
  Dim endingPrice As Double
@@ -75,7 +77,9 @@ Below is an outline of the first version of the VBA code:
 13) Format the data
 
 Below are screenshots of the time elapsed to run the first version of the VBA code for 2017 and 2018.
+
 ![Outcomes_vs_Goals](https://raw.githubusercontent.com/jmsuarez1997/stock-analysis/main/Resources/2017_Unfactoredcodetime.png)
+
 ![Outcomes_vs_Goals](https://raw.githubusercontent.com/jmsuarez1997/stock-analysis/main/Resources/2018_Unfactoredcodetime.png)
 
 The refactored code changes:
@@ -83,8 +87,8 @@ The refactored code changes:
 2) Formatted the table for the *All Stocks Analysis Worksheet*
 3) Initialized an array of all tickers
 4) Prepared for the analysis of tickers
-    - Activated the correct worksheet with the stock data
-    - Found the number of rows to loop over 
+a) Activated the correct worksheet with the stock data
+b) Found the number of rows to loop over 
 5) *Where updated code starts to change:* 
     - Created a ticket index
     
@@ -104,18 +108,17 @@ The refactored code changes:
  Next i `
 
 7) Looped over all the rows in the spreadsheet
-
-    a) Increase volume for current ticker
+a) Increase volume for current ticker
 
 `tickerVolumes(tickerIndex) = tickerVolumes(tickerIndex) + Cells(i, 8).Value`
 
-    b) Check if the current row is the first row with the selected ticket index
+b) Check if the current row is the first row with the selected ticket index
 
 `If Cells(i - 1, 1).Value <> tickers(tickerIndex) And Cells(i, 1).Value = tickers(tickerIndex) Then
             tickerStartingPrices(tickerIndex) = Cells(i, 3).Value`
 
-    c) Check if the current row is the last row with the selected ticket index
-    d) Increase the ticket index
+c) Check if the current row is the last row with the selected ticket index
+d) Increase the ticket index
     
 `tickerIndex = tickerIndex + 1`
 
@@ -131,7 +134,9 @@ The refactored code changes:
 9) Format data for font style, number format, and change interior color red or green for negative and positive return values. 
 
 Below are screen shots of the time elapsed to run the refactored VBA code 2017 and 2018. 
+
 ![Outcomes_vs_Goals](https://raw.githubusercontent.com/jmsuarez1997/stock-analysis/main/Resources/VBA_Challenge_2017.png)
+
 ![Outcomes_vs_Goals](https://raw.githubusercontent.com/jmsuarez1997/stock-analysis/main/Resources/VBA_Challenge_2018.png)
 
 The refactored code improved the efficiency of the code significantly. For 2017 the first version of the code ran in .75 seconds and the refactored version ran in .1289063 seconds, which is an 82.81% improvement in time. For 2018 the first version of the code ran in .734375 seconds and the refactored version ran in .1289063 seconds which is an 82.45% improvement in time.
