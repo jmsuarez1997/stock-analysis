@@ -1,4 +1,4 @@
-# stock-analysis
+# Stock-Analysis
 A stock analysis using VBA to uncover perfomance insight
 
 ## Overview of the Project:
