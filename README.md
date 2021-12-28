@@ -41,7 +41,7 @@ Below is an outline of the first version of the VBA code:
     Sheets(yearValue).Activate  `
 
 
-6) Found the number of rows to loop over – <a herf="https://docs.microsoft.com/en-us/office/troubleshoot/excel/loop-through-data-using-macro" target="_blank">Google</a>
+6) Found the number of rows to loop over – *https://docs.microsoft.com/en-us/office/troubleshoot/excel/loop-through-data-using-macro*
 
 `    RowCount = Cells(Rows.Count, "A").End(xlUp).Row`
 
@@ -60,20 +60,17 @@ Below is an outline of the first version of the VBA code:
 
 `    If Cells(j, 1).Value = ticker Then
 
-         totalVolume = totalVolume + Cells(j, 8).Value
-
-    End If`
+         totalVolume = totalVolume + Cells(j, 8).Value`
 
 10) Get starting price for current ticker 
 
 `    If Cells(j - 1, 1).Value <> ticker And Cells(j, 1).Value = ticker Then
 
-        startingPrice = Cells(j, 6).Value
-
-     End If`
+        startingPrice = Cells(j, 6).Value`
 
 11) Get ending price for current ticker
 12) Output the data for the current ticker in the table created
+
 `       Worksheets("All Stocks Analysis").Activate
         Cells(4 + i, 1).Value = ticker
         Cells(4 + i, 2).Value = totalVolume
@@ -87,7 +84,6 @@ Below are screenshots of the time elapsed to run the first version of the VBA co
 The refactored code changes:
 1) Created an input box for the year value
 2) Formatted the table for the *All Stocks Analysis Worksheet*
-    Show example:
 3) Initialized an array of all tickers
 4) Prepared for the analysis of tickers
     - Activated the correct worksheet with the stock data
@@ -108,7 +104,6 @@ The refactored code changes:
 
  `  For i = 0 To 11
     tickerVolumes(i) = 0
-    
     Next i `
 
 7) Looped over all the rows in the spreadsheet
@@ -123,11 +118,8 @@ The refactored code changes:
             tickerStartingPrices(tickerIndex) = Cells(i, 3).Value`
 
     - Check if the current row is the last row with the selected ticket index
-
-`        If Cells(i + 1, 1).Value <> tickers(tickerIndex) And Cells(i, 1).Value = tickers(tickerIndex) Then
-            tickerEndingPrices(tickerIndex) = Cells(i, 3).Value`
-
     - Increase the ticket index
+    
        `tickerIndex = tickerIndex + 1`
 
 8) Loop through your arrays to output the Ticker, Total Daily Volume, and Return.
