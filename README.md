@@ -19,7 +19,6 @@ Below is an outline of the first version of the VBA code:
 3) Initialized an array of all tickers
 
 `Dim tickers(11) As String
-
         tickers(0) = "AY"
         tickers(1) = "CSIQ"
         tickers(2) = "DQ"
@@ -91,12 +90,12 @@ The refactored code changes:
 a) Activated the correct worksheet with the stock data
 b) Found the number of rows to loop over 
 5) *Where updated code starts to change:* 
-    - Created a ticket index
+a)Created a ticket index
     
 `Dim tickerIndex As Single
     tickerIndex = 0`
 
-    - Created three output arrays
+b)Created three output arrays
 
 `Dim tickerVolumes(12) As Long
  Dim tickerStartingPrices(12) As Single
