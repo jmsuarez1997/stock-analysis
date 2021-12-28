@@ -15,6 +15,7 @@ Below is an outline of the first version of the VBA code:
         Cells(3, 1).Value = "Ticker"
         Cells(3, 2).Value = "Total Daily Volume"
         Cells(3, 3).Value = "Return"`
+        
 3) Initialized an array of all tickers
 
 `Dim tickers(11) As String
