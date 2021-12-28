@@ -90,12 +90,12 @@ The refactored code changes:
 a) Activated the correct worksheet with the stock data
 b) Found the number of rows to loop over 
 5) *Where updated code starts to change:* 
-a)Created a ticket index
+a) Created a ticket index
     
 `Dim tickerIndex As Single
     tickerIndex = 0`
 
-b)Created three output arrays
+b) Created three output arrays
 
 `Dim tickerVolumes(12) As Long
  Dim tickerStartingPrices(12) As Single
